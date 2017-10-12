@@ -1,0 +1,64 @@
+[
+    "Target localhost is exploit...: error"
+][
+    "Target localhost is exploit...: [*]shell:http://localhost/upload/img/20170914130909328.php  [password:1]", 
+    "Target localhost is exploit...: [*]shell:http://localhost/upload/img/1.php [password:1]", 
+    "Target localhost is exploit...: error", 
+    "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141309106762.php  [password:1]"
+][
+    "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141310575746.php  [password:1]", 
+    "Target localhost is exploit...: [*]shell:http://localhost/upload/img/1.php [password:1]", 
+    "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141310586599.php  [password:1]"
+][
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141325366172.php  [password:1]"
+    ], 
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/1.php [password:1]"
+    ], 
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141325363616.php  [password:1]"
+    ]
+][
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141328058703.php  [password:1]"
+    ], 
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/1.php [password:1]"
+    ], 
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141328053529.php  [password:1]"
+    ]
+][
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141333498860.php  [password:1]"
+    ], 
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/1.php [password:1]"
+    ], 
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/20170914133349146.php  [password:1]"
+    ]
+][
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141335584355.php  [password:1]"
+    ], 
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/1.php [password:1]"
+    ], 
+    [
+        "localhost", 
+        "Target localhost is exploit...: [*]shell:http://localhost/upload/img/201709141335583885.php  [password:1]"
+    ]
+]
