@@ -5,7 +5,12 @@
 
     pip install -r requirements.txt 
 
-初次运行如果没有安装nmap库的话会报错，　这时不要使用`pip install nmap` 这样的命令来安装, pip 安装的是nmap-0.0.1版本，正确的安装为`apt-get install python-nmap`, 按照的版本为nmap-0.6.1
+python-nmap 库需要有nmap环境，如果要使用端口批量扫描功能，请先安装nmap:`apt-get install namp`
+
+#### Show site
+具体效果可以看我博客导航页面上的两个视频文件
+
+    http://blog.s7star.cn/
 
 ### Usage
 ```
