@@ -1,5 +1,6 @@
 # s7scan
 
+[TOC]
 
 ### 安装依赖
 
@@ -159,5 +160,8 @@ optional arguments:
   -h2s H2S              十六进制转字符串
 
 ```
+
+
+### View
 
 ![](help.png)
