@@ -206,7 +206,7 @@ class Controller():
 			self.script_objs = loadScript(script_name)
 			#print self.script_obj.poc(1)
 
-		if (args.s and not args.u) and (args.s and not args.m):
+		if (args.s and not args.u) and (args.s and not args.m) and (args.s and not args.f):
 			output.error('请设置target目标')
 			sys.exit()
 
