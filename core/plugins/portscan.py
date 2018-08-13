@@ -8,7 +8,8 @@ import Queue
 import nmap
 import time
 from core.config import output
-from core.data import portscan_result
+from core.data import portscan_result,quiet
+
 
 class PortScan:
 	def __init__(self,ip="localhost",ports=None,single_port=None,Mask=None,threadNum=10,file=None):
@@ -21,6 +22,7 @@ class PortScan:
 		self.ip = ip
 		self.task = Queue.Queue()
 		self.open_ports = []
+		#print 'quiet port:',quiet
 		#print self.ports
 
 		if Mask:
@@ -53,9 +55,13 @@ class PortScan:
 					#portscan_result.append(mes)
 				except Exception,e:
 					#print e
-					mes = "%s:%s close"%(ip,port)
-					#portscan_result.append(mes)
-					output.openPort(mes)
+					if quiet:
+						pass
+					else:
+						print 'not use quiet',quiet
+						mes = "%s:%s close"%(ip,port)
+						#portscan_result.append(mes)
+						output.openPort(mes)
 				finally:
 					s.close()
 			except Exception,e:
