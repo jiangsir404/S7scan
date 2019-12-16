@@ -1,9 +1,17 @@
 #!/usr/bin/env python		
 #coding:utf-8
 
+"""
+whois信息查询
+"""
+
 import socket
 import urlparse
-from core.config import output
+import sys
+import logging
+
+sys.path.append('../../')
+#from core.config import output
 
 infolist = [
 	('.cn.com', 'whois.centralnic.net', None),
@@ -25,7 +33,17 @@ infolist = [
 ]
 
 
-def whois_request(domain,server,port=43):
+def whois_request(domain, server, port=43):
+	"""发送whois请求
+	
+	:param str domain: 需要查询的主域名(非子域名)
+	:param str server: whois服务器
+	:param int port: 端口，默认43
+	:return: socket响应内容
+
+	Desc: 
+		whois查询的原理就是通过请求对应的whois服务器的43端口，获取其响应信息
+	"""
 	sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 	sock.connect((server,port)) #连接whois服务器
 	sock.send(("%s\r\n" % domain).encode('utf-8')) #发送domain信息
@@ -36,19 +54,22 @@ def whois_request(domain,server,port=43):
 			break 
 		buff += data 
 
-	output.dataOut(buff.decode("utf-8")) 
+	return buff.decode("utf-8")
 
-#print whois_request("baidu.com","whois.verisign-grs.com")
 
 def whois(domain):
+	"""whois信息查询
+	"""
+	whois_info = ""
 	domain = fixdomain(domain)
 	r = domain.rindex('.')
 	netaddr = domain[r:] #分离出后缀
 	for data in infolist:
 		if data[0] == netaddr:
-			return whois_request(domain,data[1])
+			logging.info("whois domain:%s" % str(data))
+			whois_info =  whois_request(domain,data[1])
 
-	return ""
+	return whois_info
 
 
 def fixdomain(domain):
@@ -60,4 +81,6 @@ def fixdomain(domain):
 	return new_domain
 
 if __name__ == '__main__':
+	logging.basicConfig(level=logging.INFO)
 	print whois('www.blogsir.com.cn')
+	print whois_request("blogsir.com.cn","whois.cnnic.cn")
