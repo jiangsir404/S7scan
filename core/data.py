@@ -47,7 +47,7 @@ threads_num = 10
 webdir_result = [] #用于存储一些无法保存的扫描结果
 portscan_result = []
 exploit_result = []
-
+quiet = 1
 
 banner_0 = r"""
 	        _____                    

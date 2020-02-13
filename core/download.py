@@ -8,7 +8,7 @@ class Downloader:
 		self.headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
 		self.timeout = timeout
 
-	def fixurl(self,url):
+	def fixurl(self,url):  #规范成http://xx.xx.xx.xx/ 形式
 		if not url:
 			return None
 		if not url.startswith('http://') and not url.startswith('https://'):

@@ -9,7 +9,7 @@ import threading
 import random
 from prettytable import PrettyTable
 from core.config import ConfigFileParser,webdir_result,portscan_result,exploit_result
-from core.data import output,data,queue,output,threads_num,paths,banners,colorprinter,print_random_text,thread_mode
+from core.data import output,data,queue,output,threads_num,paths,quiet,banners,colorprinter,print_random_text,thread_mode
 from core.exploit import loadScript,loadTargets
 from core.plugins.thread_func import Thread_func
 from core.plugins.process_func import speed
@@ -67,6 +67,9 @@ class Controller():
 		port = args.p
 		file = args.f
 		outfile = args.o
+		quiet_mark = args.q
+		if quiet_mark:
+			quiet = True
 
 		# 获取配置文件里的端口信息
 		scanports = self.cf.scanports()
@@ -206,7 +209,7 @@ class Controller():
 			self.script_objs = loadScript(script_name)
 			#print self.script_obj.poc(1)
 
-		if (args.s and not args.u) and (args.s and not args.m):
+		if (args.s and not args.u) and (args.s and not args.m) and (args.s and not args.f):
 			output.error('请设置target目标')
 			sys.exit()
 
@@ -340,8 +343,9 @@ class Controller():
 		portscan.add_argument('-t',help=u"target ip 目标ip")
 		portscan.add_argument('-m',help=u"mask(127.0.0.1/28 默认掩码为24)")
 		portscan.add_argument('-p',help=u"port 目标端口",type=int)
-		portscan.add_argument('-f',help=u"网段文件列表")
+		portscan.add_argument('-f',help=u"网段文件列表,10.1.1.1/24或者ip文件列表")
 		portscan.add_argument('-o',help=u"导出json格式文件")
+		portscan.add_argument('-q',help=u"quiet output",default=False, action='store_true')
 		portscan.set_defaults(func=self.portscan)
 
 		#subnet　C段扫描
